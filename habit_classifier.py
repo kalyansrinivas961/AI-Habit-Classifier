@@ -5,7 +5,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 
-# Sample journal data (text + label)
 data = {
     'entry': [
         "Woke up early, exercised, completed assignments",
@@ -33,10 +32,7 @@ data = {
     ]
 }
 
-# Convert to DataFrame
 df = pd.DataFrame(data)
-
-# Split and create pipeline
 X_train, X_test, y_train, y_test = train_test_split(df['entry'], df['label'], test_size=0.2, random_state=42)
 
 pipeline = Pipeline([
@@ -46,7 +42,6 @@ pipeline = Pipeline([
 
 pipeline.fit(X_train, y_train)
 
-# Streamlit UI
 st.set_page_config(page_title="Habit Classifier", layout="centered")
 st.title("🧠 AI Habit Classifier")
 st.write("Enter a short journal of your day to find out if it was Productive, Unproductive, or Neutral.")
